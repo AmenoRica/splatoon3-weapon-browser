@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>새 주소로 이동</title>
+<p>사이트 주소가 변경되었습니다. <a id="destination" href="https://amenorica.github.io/s3w/">새 사이트로 이동</a></p>
+<script>
+  const oldBase = '/splatoon3-weapon-browser';
+  const suffix = location.pathname.startsWith(oldBase + '/')
+    ? location.pathname.slice(oldBase.length)
+    : '/';
+  const target = new URL('https://amenorica.github.io/s3w' + suffix);
+  target.search = location.search;
+  target.hash = location.hash;
+  document.getElementById('destination').href = target.href;
+  location.replace(target.href);
+</script>
+</html>
